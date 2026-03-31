@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yOXNEzNM0vs=",
+  "dgSpecHash": "apCtB9Gn6Q0=",
   "success": true,
   "projectFilePath": "C:\\Users\\LEE\\Desktop\\tot nghiep\\SmartCV\\SmartCV\\SmartCV.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\LEE\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\LEE\\.nuget\\packages\\betalgo.ranul.openai\\8.10.1\\betalgo.ranul.openai.8.10.1.nupkg.sha512",
     "C:\\Users\\LEE\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\LEE\\.nuget\\packages\\closedxml\\0.102.3\\closedxml.0.102.3.nupkg.sha512",

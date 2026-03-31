@@ -238,3 +238,4 @@ C:\Users\LEE\Desktop\tot nghiep\SmartCV\SmartCV\obj\Debug\net10.0\refint\SmartCV
 C:\Users\LEE\Desktop\tot nghiep\SmartCV\SmartCV\obj\Debug\net10.0\SmartCV.pdb
 C:\Users\LEE\Desktop\tot nghiep\SmartCV\SmartCV\obj\Debug\net10.0\SmartCV.genruntimeconfig.cache
 C:\Users\LEE\Desktop\tot nghiep\SmartCV\SmartCV\obj\Debug\net10.0\ref\SmartCV.dll
+C:\Users\LEE\Desktop\tot nghiep\SmartCV\SmartCV\bin\Debug\net10.0\BCrypt.Net-Next.dll

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartCV")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute(" ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f60404bab7bebf9603db1c03914674d8c4528696")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f9d7e27f433b8d5a2d0ff70f2a30a753ee9123a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartCV")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartCV")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

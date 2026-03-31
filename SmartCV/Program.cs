@@ -1,7 +1,9 @@
 using Hangfire;
 using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
+using SmartCV.Data;
 using SmartCV.Services;
 using SmartCV.Services.Interfaces;
 using System.Globalization;
@@ -20,9 +22,9 @@ builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpS
 builder.Services.Configure<FileUploadSettings>(builder.Configuration.GetSection("FileUpload"));
 
 // ─── 2. Database (EF Core + PostgreSQL) ─────────────────────────────────────
-// TODO Phase 2: Uncomment sau khi tạo AppDbContext
-// builder.Services.AddDbContext<AppDbContext>(options =>
-//     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+           .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
 // ─── 3. Authentication (Cookie Multi-Scheme) ────────────────────────────────
 builder.Services.AddAuthentication(options =>
