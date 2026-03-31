@@ -98,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xEYXNoYm9hcmRcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/CandidateDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXENhbmRpZGF0ZURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/CandidateListing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXENhbmRpZGF0ZUxpc3RpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,12 +110,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/EditPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXEVkaXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/Faculty.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXEZhY3VsdHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/JobListing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXEpvYkxpc3RpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/LectureDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXExlY3R1cmVEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Areas/Lecture/Views/Lecture/LectureListing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTGVjdHVyZVxWaWV3c1xMZWN0dXJlXExlY3R1cmVMaXN0aW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/LEE/Desktop/tot nghiep/SmartCV/SmartCV/Views/Auth/AccessDenied.cshtml]

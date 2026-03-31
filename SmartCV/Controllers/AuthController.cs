@@ -294,7 +294,7 @@ public class AuthController : Controller
             .Include(l => l.Role)
             .FirstOrDefaultAsync(l => l.LectureCode == model.LectureCode);
 
-        if (lecture is null || !BCrypt.Net.BCrypt.Verify(model.Password, lecture.Password))
+        if (lecture is null || string.IsNullOrEmpty(lecture.Password) || !BCrypt.Net.BCrypt.Verify(model.Password, lecture.Password))
         {
             TempData["Error"] = "Mã giảng viên hoặc mật khẩu không đúng.";
             return View("LectureLogin", model);
