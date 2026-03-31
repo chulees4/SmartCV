@@ -6,4 +6,36 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- EF Core + PostgreSQL -->
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.*" />
+
+    <!-- Authentication -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="9.*" />
+
+    <!-- Email -->
+    <PackageReference Include="MailKit" Version="4.*" />
+    <PackageReference Include="MimeKit" Version="4.*" />
+
+    <!-- Excel Import/Export -->
+    <PackageReference Include="ClosedXML" Version="0.102.*" />
+
+    <!-- AI Chatbot -->
+    <PackageReference Include="Betalgo.Ranul.OpenAI" Version="8.*" />
+
+    <!-- Background Jobs -->
+    <PackageReference Include="Hangfire.Core" Version="1.8.*" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.*" />
+    <PackageReference Include="Hangfire.PostgreSql" Version="1.20.*" />
+
+    <!-- Logging -->
+    <PackageReference Include="Serilog.AspNetCore" Version="8.*" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.*" />
+
+    <!-- Image Processing -->
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.*" />
+  </ItemGroup>
+
 </Project>
