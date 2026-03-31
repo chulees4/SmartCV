@@ -1,0 +1,92 @@
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+    var tab = TempData["SignupTab"]?.ToString() ?? "candidate";
+    var candidateModel = ViewBag.CandidateModel as SmartCV.ViewModels.Auth.CandidateSignupViewModel
+                         ?? new SmartCV.ViewModels.Auth.CandidateSignupViewModel();
+    var companyModel = ViewBag.CompanyModel as SmartCV.ViewModels.Auth.CompanySignupViewModel
+                       ?? new SmartCV.ViewModels.Auth.CompanySignupViewModel();
+}
+
+<section class="signup-area pt-120 pb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-10">
+                <div class="login-wrapper">
+                    <h3 class="login-title text-center mb-30">Tạo tài khoản</h3>
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
+
+                    <ul class="nav nav-tabs mb-30" id="signupTab">
+                        <li class="nav-item">
+                            <a class="nav-link @(tab == "candidate" ? "active" : "")" data-bs-toggle="tab" href="#candidate-signup-tab">
+                                Ứng viên
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(tab == "company" ? "active" : "")" data-bs-toggle="tab" href="#company-signup-tab">
+                                Nhà tuyển dụng
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <!-- Candidate Signup -->
+                        <div class="tab-pane @(tab == "candidate" ? "active" : "")" id="candidate-signup-tab">
+                            <form asp-action="CandidateSignup" asp-controller="Auth" method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="mb-3">
+                                    <label class="form-label">Họ và tên</label>
+                                    <input name="Name" value="@candidateModel.Name" class="form-control" placeholder="Nguyễn Văn A" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input name="Email" value="@candidateModel.Email" class="form-control" type="email" placeholder="email@example.com" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mật khẩu</label>
+                                    <input name="Password" class="form-control" type="password" placeholder="Tối thiểu 6 ký tự" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Xác nhận mật khẩu</label>
+                                    <input name="ConfirmPassword" class="form-control" type="password" placeholder="Nhập lại mật khẩu" />
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Đăng ký Ứng viên</button>
+                            </form>
+                        </div>
+
+                        <!-- Company Signup -->
+                        <div class="tab-pane @(tab == "company" ? "active" : "")" id="company-signup-tab">
+                            <form asp-action="CompanySignup" asp-controller="Auth" method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="mb-3">
+                                    <label class="form-label">Tên công ty</label>
+                                    <input name="CompanyName" value="@companyModel.CompanyName" class="form-control" placeholder="Công ty TNHH ABC" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email công ty</label>
+                                    <input name="Email" value="@companyModel.Email" class="form-control" type="email" placeholder="hr@company.com" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mật khẩu</label>
+                                    <input name="Password" class="form-control" type="password" placeholder="Tối thiểu 6 ký tự" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Xác nhận mật khẩu</label>
+                                    <input name="ConfirmPassword" class="form-control" type="password" placeholder="Nhập lại mật khẩu" />
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Đăng ký Nhà tuyển dụng</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <p class="text-center mt-4">
+                        Đã có tài khoản? <a href="/login">Đăng nhập</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

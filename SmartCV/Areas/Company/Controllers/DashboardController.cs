@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using SmartCV.Data;
 
-namespace SmartCV.Areas.Admin.Controllers;
+namespace SmartCV.Areas.Company.Controllers;
 
-public class DashboardController : AdminBaseController
+public class DashboardController : CompanyBaseController
 {
     private readonly AppDbContext _db;
 

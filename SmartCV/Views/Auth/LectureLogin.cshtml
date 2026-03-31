@@ -1,0 +1,43 @@
+@model SmartCV.ViewModels.Auth.LectureLoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập Giảng viên";
+}
+
+<section class="login-area pt-120 pb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8">
+                <div class="login-wrapper">
+                    <h3 class="login-title text-center mb-10">Cổng Giảng viên</h3>
+                    <p class="text-center text-muted mb-30">SmartCV — Hệ thống quản lý việc làm sinh viên</p>
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
+
+                    <form asp-action="LectureLoginSubmit" asp-controller="Auth" method="post">
+                        @Html.AntiForgeryToken()
+                        <div class="mb-3">
+                            <label class="form-label">Mã giảng viên</label>
+                            <input asp-for="LectureCode" class="form-control" placeholder="GV001" />
+                            <span asp-validation-for="LectureCode" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <input asp-for="Password" class="form-control" placeholder="••••••••" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <a href="/forget-password/lecture" class="text-primary small">Quên mật khẩu?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

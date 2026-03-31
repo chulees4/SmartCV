@@ -1,0 +1,104 @@
+@model SmartCV.ViewModels.Auth.LoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập";
+    var tab = TempData["LoginTab"]?.ToString() ?? "candidate";
+}
+
+<section class="login-area pt-120 pb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10">
+                <div class="login-wrapper">
+                    <h3 class="login-title text-center mb-30">Đăng nhập</h3>
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs mb-30" id="loginTab">
+                        <li class="nav-item">
+                            <a class="nav-link @(tab == "candidate" ? "active" : "")" data-bs-toggle="tab" href="#candidate-tab">
+                                Ứng viên
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(tab == "company" ? "active" : "")" data-bs-toggle="tab" href="#company-tab">
+                                Nhà tuyển dụng
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <!-- Candidate Login -->
+                        <div class="tab-pane @(tab == "candidate" ? "active" : "")" id="candidate-tab">
+                            <form asp-action="CandidateLogin" asp-controller="Auth" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input asp-for="Email" class="form-control" placeholder="email@example.com" />
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mật khẩu</label>
+                                    <input asp-for="Password" class="form-control" placeholder="••••••••" />
+                                    <span asp-validation-for="Password" class="text-danger small"></span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="form-check">
+                                        <input asp-for="RememberMe" class="form-check-input" />
+                                        <label class="form-check-label" asp-for="RememberMe">Ghi nhớ đăng nhập</label>
+                                    </div>
+                                    <a href="/forget-password/candidate" class="text-primary small">Quên mật khẩu?</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                            </form>
+                            <div class="divider text-center my-3"><span>hoặc</span></div>
+                            <a href="/login/google" class="btn btn-outline-danger w-100">
+                                <i class="fab fa-google me-2"></i> Đăng nhập với Google
+                            </a>
+                        </div>
+
+                        <!-- Company Login -->
+                        <div class="tab-pane @(tab == "company" ? "active" : "")" id="company-tab">
+                            <form asp-action="CompanyLogin" asp-controller="Auth" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                                <div class="mb-3">
+                                    <label class="form-label">Email công ty</label>
+                                    <input asp-for="Email" class="form-control" placeholder="email@company.com" />
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mật khẩu</label>
+                                    <input asp-for="Password" class="form-control" placeholder="••••••••" />
+                                    <span asp-validation-for="Password" class="text-danger small"></span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="form-check">
+                                        <input asp-for="RememberMe" class="form-check-input" />
+                                        <label class="form-check-label" asp-for="RememberMe">Ghi nhớ đăng nhập</label>
+                                    </div>
+                                    <a href="/forget-password/company" class="text-primary small">Quên mật khẩu?</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <p class="text-center mt-4">
+                        Chưa có tài khoản? <a href="/create-account">Đăng ký ngay</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

@@ -42,14 +42,23 @@ public class EmailService : IEmailService
         await client.DisconnectAsync(true);
     }
 
-    public Task SendWelcomeAsync(string toEmail, string toName)
-        => SendAsync(toEmail, toName, "Chào mừng đến với SmartCV",
-            $"<h2>Xin chào {toName}!</h2><p>Tài khoản SmartCV của bạn đã được tạo thành công.</p>");
+    public Task SendWelcomeAsync(string toEmail, string toName, string token, string userType)
+    {
+        var verifyUrl = $"/{userType}-signup-verify/{token}/{Uri.EscapeDataString(toEmail)}";
+        return SendAsync(toEmail, toName, "Xác minh tài khoản SmartCV",
+            $"<h2>Xin chào {toName}!</h2>" +
+            $"<p>Cảm ơn bạn đã đăng ký SmartCV. Nhấn link bên dưới để xác minh email (hết hạn sau 24 giờ):</p>" +
+            $"<p><a href='{verifyUrl}' style='background:#0d6efd;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px'>Xác minh email</a></p>");
+    }
 
-    public Task SendPasswordResetAsync(string toEmail, string toName, string resetToken)
-        => SendAsync(toEmail, toName, "Đặt lại mật khẩu SmartCV",
-            $"<p>Xin chào {toName},</p><p>Click vào link bên dưới để đặt lại mật khẩu (hết hạn sau 30 phút):</p>" +
-            $"<a href='/Auth/ResetPassword?token={resetToken}'>Đặt lại mật khẩu</a>");
+    public Task SendPasswordResetAsync(string toEmail, string toName, string resetToken, string userType)
+    {
+        var resetUrl = $"/reset-password/{userType}/{resetToken}/{Uri.EscapeDataString(toEmail)}";
+        return SendAsync(toEmail, toName, "Đặt lại mật khẩu SmartCV",
+            $"<p>Xin chào {toName},</p>" +
+            $"<p>Click vào link bên dưới để đặt lại mật khẩu (hết hạn sau 60 phút):</p>" +
+            $"<p><a href='{resetUrl}' style='background:#0d6efd;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px'>Đặt lại mật khẩu</a></p>");
+    }
 
     public Task SendApplicationNotifyCompanyAsync(string toEmail, string companyName, string applicantName, string jobTitle)
         => SendAsync(toEmail, companyName, $"Ứng viên mới cho vị trí {jobTitle}",

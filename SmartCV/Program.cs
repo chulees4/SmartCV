@@ -87,6 +87,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 // ─── 5. Services (DI) ───────────────────────────────────────────────────────
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IChatbotService, ChatbotService>();
 builder.Services.AddScoped<IFileService, FileService>();
